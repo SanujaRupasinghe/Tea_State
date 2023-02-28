@@ -1,0 +1,25 @@
+{% extends 'Main/base.html' %}
+{% load jazzmin %}
+{% load static %}
+
+{% block content %}
+
+<div class="row">
+
+{% for work in allWorks %}
+<div class="col-md-4 stretch-card grid-margin">
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Work - {{ work.name }}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">unit - {{ work.unit }}</h6>
+    <p class="card-text">{{ work.description }}</p>
+    <a href="{{ work.get_admin_url }}" class="card-link">change</a>
+    <a href="{% url 'works_details' work.id %}" class="card-link">Details</a>
+  </div>
+</div>
+</div>
+{% endfor %}
+
+</div>
+
+{% endblock %}

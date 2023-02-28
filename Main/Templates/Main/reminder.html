@@ -1,0 +1,33 @@
+{% extends 'Main/base.html' %}
+{% load jazzmin %}
+{% load static %}
+
+{% block content %}
+
+              <div class="col-md-15 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title text-white">Todo</h4>
+                    <div class="add-items d-flex">
+                      <h6>reminders</h6>
+
+                    </div>
+                    <div class="list-wrapper">
+                      <ul class="d-flex flex-column-reverse todo-list todo-list-custom">
+                        {% for reminder in reminders %}
+                          <li>
+                            <div class="form-check">
+                              <label class="form-check-label">
+                                <input class="checkbox" type="checkbox"> {{ reminder }} </label>
+                            </div>
+                            <i class="remove mdi mdi-close-circle-outline"></i>
+                          </li>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+{% endblock %}

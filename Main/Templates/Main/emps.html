@@ -1,0 +1,40 @@
+{% extends 'Main/base.html' %}
+{% load jazzmin %}
+{% load static %}
+
+{% block content %}
+
+<div class="row">
+  {% for emp in allEmps %}
+  <div class="col-md-4 stretch-card grid-margin">
+    <div class="card" style="width: 18rem;">
+    <img src="{{ emp.img.url }}" class="card-img-top" alt="Default Employee Pic"/>
+    <div class="card-body">
+      <h5 class="card-title">Employee - {{ emp.name }}</h5>
+      <p class="card-text">{{ emp.description }}</p>
+    </div>
+    <ul class="list-group list-group-light list-group-small">
+      {% if emp.gender == 0 %}
+        <li class="list-group-item px-4">Gender - Male</li>
+      {% else %}
+        <li class="list-group-item px-4">Gender - Female</li>
+      {% endif %}
+      <li class="list-group-item px-4">Tel - {{ emp.telephoneNo }}</li>
+    </ul>
+    <div class="card-body">
+      <a href="{{ emp.get_admin_url }}" class="card-link">change</a>
+    </div>
+  </div>
+  </div>
+  {% endfor %}
+</div>
+
+
+
+{% endblock %}
+
+
+
+
+
+
